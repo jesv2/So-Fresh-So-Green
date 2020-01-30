@@ -1,0 +1,60 @@
+{
+  "name": "SSTUI",
+  "version": "1.0.0",
+  "description": "Dynamic GUI generator for Datalogics SST tools.",
+  "main": "main.js",
+  "author": {
+    "name": "Datalogics Inc."
+  },
+  "homepage": "https://www.datalogics.com/",
+  "scripts": {
+    "test-master": "mocha -c --reporter=spec --recursive \"./tests/*_test.js\"",
+    "test-app": "mocha ./tests/app_launch_test.js",
+    "test-banner": "mocha ./tests/banner_test.js",
+    "test-clear-button": "mocha ./tests/clear_button_test.js",
+    "test-run-button": "mocha ./tests/run_button_test.js",
+    "test-settings-button": "mocha ./tests/settings_button_test.js",
+    "test-run-command-window": "mocha ./tests/run_command_window_test.js",
+    "test-sst-return-window": "mocha ./tests/sst_return_info_window_test.js",
+    "test-output-path-field": "mocha ./tests/output_path_field_test.js",
+    "test-scroll-menu": "mocha ./tests/scroll_menu_test.js",
+    "test-curr-menu-opt": "mocha ./tests/current_menu_option_test.js",
+    "test-run-button-disabled": "mocha ./tests/run_button_disabled_test.js",
+    "test-settings-file": "mocha ./tests/settings_file_test.js",
+    "test-esc": "mocha ./tests/esc_test.js",
+    "start": "electron .",
+    "packager-win": "electron-packager . --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/Datalogics.ico --prune=true --out=release-builds --version-string.CompanyName=\"Datalogics\" --version-string.FileDescription=CE --version-string.ProductName=\"SSTUI\"",
+    "builder-win": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "make-installer": "npm run postinstall && npm run builder-win",
+    "build-full-release": "npm run test-master && npm run make-installer",
+    "format-config-files": "prettier ./config_files/* ./.prettierrc.json --write",
+    "format-package": "prettier ./package.json --write",
+    "format-code": "prettier ./src/* ./tests/* ./main.js ./index.html ./renderer.js --write",
+    "format-all": "npm run format-code && npm run format-config-files && npm run format-package"
+  },
+  "build": {
+    "appId": "com.Datalogics.SSTUI",
+    "productName": "SSTUI",
+    "artifactName": "setup_${productName}_Win64_${version}.${ext}",
+    "extraResources" : [
+      "./config_files/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/Datalogics.ico"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "electron": "^5.0.9",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^13.1.1",
+    "mocha": "^6.2.0",
+    "mock-fs": "^4.10.1",
+    "prettier": "^1.18.2",
+    "sendkeys": "^1.1.1",
+    "spectron": "^5.0.0"
+  }
+}

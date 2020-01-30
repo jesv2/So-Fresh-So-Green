@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datalogics SST GUI</title>
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+  </head>
+  <body
+    scroll="no"
+    style="overflow: hidden; background-color: rgb(41,104,182);"
+  >
+    <div id="greet">
+      <h1 id="sstname">
+        <!-- configData.programName -->
+      </h1>
+    </div>
+
+    <!-- -->
+    <div id="paramWindowLabel">
+      <div id="paramWindowInfo"></div>
+    </div>
+
+    <!-- -->
+    <div id="required">
+      <p id="reqLabel">Required Fields <br /><br /></p>
+      <button id="runbutton" disabled="disabled">
+        RUN
+      </button>
+    </div>
+
+    <div id="menu"></div>
+
+    <!-- -->
+    <div id="runWindowLabel">
+      Current Command:
+      <button id="cmdColl">+</button>
+      <div id="runWindowInfo">
+        cmd:
+        <button id="clearButton">
+          CLEAR
+        </button>
+      </div>
+    </div>
+
+    <!-- -->
+    <div id="retInfoLabel">
+      SST Info:<button id="help">?</button><button id="retColl">+</button>
+      <br />
+      <div id="returnInfo">
+      </div>
+    </div>
+  </body>
+
+  <script>
+    require("./renderer.js");
+  </script>
+</html>

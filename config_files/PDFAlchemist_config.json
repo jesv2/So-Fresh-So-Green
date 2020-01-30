@@ -1,0 +1,454 @@
+{
+  "programName": "PDFAlchemist",
+  "description": "PDF Alchemist allows for the easy, rapid conversion of Portable Document Format(PDF) files into Hypertext Markup Language(HTML) files, Extensible Markup Language(XML), and electronic publication(EPUB) format packages.<br><br>PDF Alchemist scans through the text on PDF pages like a human, linking related text and paragraphs together, and skipping page-specific artifacts like running headers and footers. Output is saved as reflowable HTML, or EPUB, and from there can be used in a variety of ways, for a variety of purposes.",
+  "help": "",
+  "params": [
+    {
+      "cmd": "fileName",
+      "id": "fileName",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "File Name",
+      "info": "Enter the file path of the PDF being processed by PDF Alchemist"
+    },
+    {
+      "cmd": "outputDir",
+      "id": "outputDir",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": false,
+      "directory": true,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output Dir",
+      "info": "Enter the directory/folder that PDF Alchemist will output its results to"
+    },
+    {
+      "cmd": "-enableBookmarks",
+      "id": "enableBookmarks",
+      "critical": false,
+      "value": true,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Enable Bookmarks",
+      "info": "PDF Alchemist will convert the outlines entry in a PDF file (the table of contents), when present, into a file named bookmarks.html.<br> This HTML file contains a frame view of the generated PDF,<br>with the generated table of contents in one pane and the generated HTML content in a main viewing pane."
+    },
+    {
+      "cmd": "-enableCaptions",
+      "id": "enableCaptions",
+      "critical": false,
+      "value": true,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "Set this option to “true” to tell the software to look for text appearing under images and define that text, when found, as a caption.",
+      "label": "Enable Captions"
+    },
+    {
+      "cmd": "-flattenForms",
+      "id": "flattenForms",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "By default, PDF Alchemist will convert Acrobat Forms to interactive HTML forms in fixed-layout format.<br>If this option is specified as true, PDF Alchemist will instead convert Acrobat PDF Forms in the PDF into flattened, non-interactive versions of the form<br>that represent the appearance of the forms, using the normal appearance stream defined for each form element.",
+      "label": "Non Interactive Forms"
+    },
+    {
+      "cmd": "-htmlLinkStyleUnspecified",
+      "id": "htmlLinkStyleUnspecified",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If this option is specified as true, links are instead generated with default HTML link appearance semantics, no matter their appearance in the PDF input.",
+      "label": "HTML Link Style"
+    },
+    {
+      "cmd": "-keepBackground",
+      "id": "keepBackground",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If this option is specified as true, images that are detected as background images will be retained in the output.",
+      "label": "Keep Background"
+    },
+    {
+      "cmd": "-keepEmbeddedFonts",
+      "id": "keepEmbeddedFonts",
+      "critical": false,
+      "value": true,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "PDF Alchemist emits fonts that are embedded in the PDF input to font files in the output directory, and emits references to those fonts in its generated HTML.<br>If this option is specified as false, PDF Alchemist will not emit these font files. Instead, PDF Alchemist will emit references for the font names found in the PDF file.<br>This will cause fonts installed on the target processing/viewing environment to be used when the HTML is viewed or processed.",
+      "label": "Embedded Fonts"
+    },
+    {
+      "cmd": "-keepHeaderFooter",
+      "id": "keepHeaderFooter",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If this option is specified as true, header and footer text will be preserved in the output.",
+      "label": "Header & Footer"
+    },
+    {
+      "cmd": "-logging",
+      "id": "logging",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If specified as true, additional information is output to the console during conversion.<br>This information is of limited interest to users and should be used when instructed by Datalogics.",
+      "label": "Logging"
+    },
+    {
+      "cmd": "-mergeSpan",
+      "id": "mergeSpan",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "Use this parameter to have PDF Alchemist discard HTML style values when exporting content to XML output files, such as references to fonts, indented text, and color.",
+      "label": "Remove Span"
+    },
+    {
+      "cmd": "-reflowForms",
+      "id": "reflowForms",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If this option is specified as true, PDF Alchemist will instead convert PDF forms to reflowable HTML forms.",
+      "label": "Reflow Forms"
+    },
+    {
+      "cmd": "-removeHyphen",
+      "id": "removeHyphen",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "If this option is specified as true, PDF Alchemist will remove hyphens that end lines in the PDF input.",
+      "label": "Remove Hyphen"
+    },
+    {
+      "cmd": "-singleFile",
+      "id": "singleFile",
+      "critical": false,
+      "value": false,
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": ["SplitByBookmark", "SplitByNumberofPages"],
+      "repeatable": false,
+      "info": "If this option is specified as true, PDF to HTML conversion will generate one HTML file with the CSS style information included within.<br>Fonts and images will still be emitted as separate files in their respective fonts and images folders.",
+      "label": "Single File"
+    },
+
+    {
+      "cmd": "-cmap",
+      "id": "cmap",
+      "critical": false,
+      "value": "./cmaps/",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "A folder containing PDF format CMap files used for converting text in CID (character ID) form to Unicode in the HTML output.<br>The folder name must have a trailing slash character.",
+      "label": "CMap"
+    },
+    {
+      "cmd": "-imageDPI",
+      "id": "imageDPI",
+      "critical": false,
+      "value": "200",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "This option may be used to specify a different target resolution for generated images; default is 200 dpi.",
+      "label": "Image DPI"
+    },
+    {
+      "cmd": "-ocrLanguage",
+      "id": "ocrLanguage",
+      "critical": false,
+      "value": "eng",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "deu", "eng", "fra", "ita", "nld", "por", "spa"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "Optical Character Recognition (OCR) is used to pull text from images within the PDF.<br>This option allows you to select which language the OCR utility should use to look for texts; default is English.",
+      "label": "OCR Language"
+    },
+    {
+      "cmd": "-ocrMode",
+      "id": "ocrMode",
+      "critical": false,
+      "value": "off",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "off", "tag", "replace"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "By default, PDF Alchemist passes images in PDF files through to its output without looking for text in these images.<br><br>If the -ocrMode option is set to “tag,” PDF Alchemist uses Optical Character Recognition (OCR) to scan images when converting PDF files. Any text found within an image is embedded in the image reference alt attributes.<br><br> If the -ocrMode option is set to “replace,” the OCR feature is turned on and the OCR text replaces the original image in the output file. The process creates selectable text in the HTML or XML output, and the source image is removed.<br> The text is also tagged as OCR text within the export file. This allows the person reviewing the output file to know where the text came from, and it also serves as a warning, as the OCR text might not be rendered perfectly.<br>For an HTML or EPUB output file, any text generated from an image in the PDF input file using OCR is marked with this tag:",
+      "label": "OCR Mode"
+    },
+    {
+      "cmd": "-outputFormat",
+      "id": "outputFormat",
+      "critical": false,
+      "value": "html",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "html", "epub", "xml"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "Use this parameter to specify the type of output to be generated by PDF Alchemist.",
+      "label": "Output Format"
+    },
+    {
+      "cmd": "-purpose",
+      "id": "purpose",
+      "critical": false,
+      "value": "balanced",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "balanced", "indexing"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "info": "PDF Alchemist allows users to invoke different processing of input PDF files to match the needs of different workflows.<br><br> The two types of processing are<br>1. indexing – in this mode, PDF Alchemist will not rasterize any text. This preserves text for searching and indexing workflows, at the cost of potential changes to the visual appearance of the output vs. the input PDF. <br>2. Balanced – in this mode, output from PDF Alchemist is targeted to general purpose workflows, where the need for searchable output is balanced with the need for visually correct output.<br> Text may be rasterized when required to preserve the visual appearance and ordering of text in relation to other elements.",
+      "label": "Purpose"
+    },
+    {
+      "cmd": "-splitByBookmarkDepth",
+      "id": "splitByBookmarkDepth",
+      "critical": false,
+      "value": "0",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": ["SingleFile"],
+      "repeatable": false,
+      "info": "This value specifies the depth at which to consider bookmarks as indicators of separate sections.",
+      "label": "Split By Bookmark"
+    },
+    {
+      "cmd": "-splitByEveryNumberOfPages",
+      "id": "splitByEveryNumberOfPages",
+      "critical": false,
+      "value": "0",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": ["SingleFile"],
+      "repeatable": false,
+      "info": "If a value greater than or equal to 1 is specified, PDF Alchemist will generate output in sections that are split after the number of pages from the input PDF specified for this parameter have been written to the output.",
+      "label": "Split By Number of Pages"
+    }
+  ]
+}

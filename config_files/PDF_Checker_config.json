@@ -1,0 +1,119 @@
+{
+  "programName": "PDFChecker",
+  "description": "PDF Checker is a simple scriptable server tool that allows you to quickly scan a PDf document or set of documents to look for problems, or to simply identify features within a document that are likely to get in your way if you want to use the PDF efficiently.<br><br> With this knowledge, you can use PDF Optimizer to apply these changes to those documents so tha they will dowload faster or open more quickly in a browser window or mobile device.",
+  "help": "--help",
+  "params": [
+    {
+      "cmd": "--input",
+      "id": "input",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Input",
+      "info": "The name and path of the PDF input file to review"
+    },
+    {
+      "cmd": "--profile",
+      "id": "profile",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Profile",
+      "info": "The name and path of the JSON profile file"
+    },
+    {
+      "cmd": "--output",
+      "id": "output",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": true,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output",
+      "info": "The name and path to assign to the output results file"
+    },
+    {
+      "cmd": "--password",
+      "id": "password",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Password",
+      "info": "Password needed to open a protected PDF input file"
+    },
+    {
+      "cmd": "--nopath",
+      "id": "nopath",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": false,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "No Path",
+      "info": "Remove the system paths to the input PDF or JSON file"
+    }
+  ]
+}

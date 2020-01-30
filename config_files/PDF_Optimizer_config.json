@@ -1,0 +1,76 @@
+{
+  "programName": "PDFOptimizer",
+  "description": "PDF Optimizer is a simple command line utility that allows you to rework a PDF document so that it will dowload faster or open more quickly in a browser window.<br><br>Usually, optimizing a PDF document makes it smaller, and a smaller PDF document is easier to manage.<br>If your goal is to edit a PDF document so that it can be more easily sent out as an attachment to an email message or to allow for faster paging online, you could use PDF Otimizer to reduce the size of a PDF file from, say, 8MPB to 1.5MB.<br>Optimizing can improve the performance of a PDF document without necessarily making that document smaller. The optimization process can discard objects and features within a PDF document that requires excess processing time, making the file more efficient. A complicated PDF document with a lot of features will tend to take more time to load, regardless of the size.",
+  "help": "--help",
+  "params": [
+    {
+      "cmd": "--input",
+      "id": "input",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Input",
+      "info": "name of the PDF Input file you want to optimize"
+    },
+    {
+      "cmd": "--output",
+      "id": "output",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": true,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output",
+      "info": "name you want to assign to the output PDF file"
+    },
+    {
+      "cmd": "--profile",
+      "id": "profile",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Profile",
+      "info": "name of the JSON profile file"
+    }
+  ]
+}

@@ -1,0 +1,738 @@
+{
+  "programName": "PDF2IMG",
+  "description": "PDF2IMG is a conversion utility that allows you to trannsform pages in a PDF or XPS document into graphics image files like BMP, GIF, or JPEG. You can also use PDF as one of the export formats. That means that you can take a 15-page PDF document and use PDF2IMG to turn it into 15 separate PDF documents, one PDF for each page in the original file. You could, instead, convert that 15-page PDF into a series of 15 different PNG files.<br><br> PDF2IMG was created using Adobe PDF library, a Software Development Kit(SDK) based on Adobe Acrobat technology. The Adobe PDF Library is available from Datalogics.",
+  "help": "-help",
+  "params": [
+    {
+      "cmd": "-asprinted",
+      "id": "asprinted",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "As Printed",
+      "info": "This parameter tells PDF2IMG to render the document into an image as we would see on paper as oppose to a screen. This command can be overridden by the -noannot flag."
+    },
+    {
+      "cmd": "-blackisone",
+      "id": "blackisone",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Blackisone",
+      "info": "Use the -blackisone argument to direct PDF2IMG to declare a reversed PhotometricInterpretation value of black=1;white=0 in the header of TIFF image file. The TIFF image file is defined with an output of 1-bit (black and white). This argument corrects a problem existing in some third-party PDF documents, where the converted TIFF output may unexpectedly display in reversed (negative) format when viewed via certain display utilities. "
+    },
+    {
+      "cmd": "-blendingspace=",
+      "id": "blendingspace",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Blending Space",
+      "info": "This allows the user to specify a blending color space by naming a profile description or providing a name and path of the profile file (.icc)."
+    },
+    {
+      "cmd": "-bpc=",
+      "id": "bpc",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "1", "8"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "BPC",
+      "info": "This argument refers to the Image Depth expressed as Bits per Color channel, or the number of bits used to represent a color channel sample in the selected output format."
+    },
+    {
+      "cmd": "-colormodel=",
+      "id": "colormodel",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "cmyk", "gray", "lab", "rgb", "rgba"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Color Model",
+      "info": "The colormodel will be cmyk, gray, lab, rgb, or rgba. The valid colormodel choices are determined by the output format selected.<br>Note: You can’t define a color model for PDF or XPS output. If you select PDF or XPS as the output format and include the “-colormodel” option in your command line statement, the software will ignore it."
+    },
+    {
+      "cmd": "-colorprofile=",
+      "id": "colorprofile",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Color Profile",
+      "info": "Color profiles are standards for managing colors, used to guarantee that the colors for text or graphics in a file remain the same regardless of the hardware or software used to display, edit, or print that file"
+    },
+    {
+      "cmd": "-compression=",
+      "id": "compression",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "no", "jpg", "lzw", "g3", "g4"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Compression",
+      "info": "For TIFF only, "
+    },
+    {
+      "cmd": "-digits=",
+      "id": "digits",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Digits",
+      "info": "Specify the number of digits to be used for the sequential output filename numbering suffix. You must specify a -digits value at least as high as what the input file would require by default."
+    },
+    {
+      "cmd": "-firstonly",
+      "id": "firstonly",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Firstonly",
+      "info": "The firstonly command directs PDF2IMG to convert only the first page of the input PDF file. Otherwise, the software converts every page found in the document. This option does not accept a value."
+    },
+    {
+      "cmd": "-fontlist=",
+      "id": "fontlist",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "directory": true,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": true,
+      "label": "Font List",
+      "info": "The -fontlist argument passes to the PDF2IMG system an alternate list of directories where the system can find font files. PDF2IMG will use the first instance of each font that it finds. The following rules apply: • The values included in the -fontlist argument--that is, the names of font directories--must be separated by semicolons.<br>• Wildcard characters such as tildes (~) or asterisks (*) are not allowed.<br>• The list of values must be enclosed in double quotes.<br>• You can list up to 16 locations with the -fontlist argument."
+    },
+    {
+      "cmd": "-ignoredefaultfonts",
+      "id": "ignoredefaultfonts",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Ignore Default Fonts",
+      "info": "Normally, when PDF2IMG starts it searches for local font resources, looking in the default system font directories and the current working directory. Use the -ignoredefaultfonts option to suppress this search. Instead, the system will only use the resources specified in the supplied -fontlist option statement. This option does not accept a value."
+    },
+    {
+      "cmd": "-ignorewarn",
+      "id": "ignorewarn",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Ignore Warn",
+      "info": "The -ignorewarn command suppresses the warning normally returned whenever non-renderable content is encountered in the input file. This option does not accept a value."
+    },
+    {
+      "cmd": "-intent=",
+      "id": "intent",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": [
+        "",
+        "perceptual",
+        "relative",
+        "saturation",
+        "absolute",
+        "profile"
+      ],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Intent",
+      "info": "Use the -intent option to specify the color translation method for colors that are outside the gamut of the color profile. The intent feature is useful if you are converting a PDF page to a graphic file."
+    },
+    {
+      "cmd": "-jpegquality=",
+      "id": "jpegquality",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "JPEG Quality",
+      "info": "The jpegquality option is a value from 1 to 100, representing the quality/size value for the JPEG compressor. A higher value will produce a higher quality image, though also a larger output file. Lower values will produce lower-quality images but smaller and more efficient output graphic files."
+    },
+    {
+      "cmd": "-maxbandmem=",
+      "id": "maxbandmem",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Max B and Mem",
+      "info": "When generating JPEG or TIFF output, PDF2IMG checks to see if it has enough memory to rasterize a PDF page in one pass. If not, it rasterizes the page in bands (strips) to use less memory, then reassembles the bitmaps into the finished output image. the -maxbandmem option allows the user to fine tune this process. "
+    },
+    {
+      "cmd": "-multipage",
+      "id": "multipage",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Multipage",
+      "info": "Normally, processing a multipage PDF input file will result in a series of sequentially-ordered, single-page output files, each carrying the given or default output file name prefix, an underscore (\"_\") and a sequential number. If performing a conversion to TIFF, -multipage directs PDF2IMG to produce one, multipage TIFF output file instead."
+    },
+    {
+      "cmd": "-noannot",
+      "id": "noannot",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "No An Not",
+      "info": "Specify -noannot in a command line to prevent displayable annotations from appearing in output files."
+    },
+    {
+      "cmd": "-nocmm",
+      "id": "nocmm",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "No CMM",
+      "info": "The -nocmm option suppresses the use of the Color Management Module (CMM) and embedded color profiles during conversion to selected output graphic image formats."
+    },
+    {
+      "cmd": "-noenhancethinlines",
+      "id": "noenhancethinlines",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "No Enhance Thin Lines",
+      "info": "PDF2IMG uses the \"Enhance thin lines\" rendering option by default. This process is also found in Adobe Reader and Adobe Acrobat. If this is not the effect you want, use the -noenhancethinlines option to turn it off."
+    },
+    {
+      "cmd": "-OPP",
+      "id": "OPP",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "OPP",
+      "info": "The OverPrint Preview (OPP) option allows you to generate a graphic that represents the Overprint content that would otherwise be lost during the rendering process. The graphic will show what the input PDF page would look like after being printed."
+    },
+    {
+      "cmd": "-output=",
+      "id": "output",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output",
+      "info": "Use -output to define the prefix to add to the name of the output file or files you seek to create. The value given here will be used for the output file name, with a sequence number and an appropriate extension appended to indicate the output file type, such as sample_1.gif and sample_1.jpg."
+    },
+    {
+      "cmd": "-outputintent=",
+      "id": "outputintent",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output Intent",
+      "info": "This option defines the output color profile for PDF2IMG to use when rendering a page from a PDF document to a rasterized graphic image. The argument tells the software to find the profile to use in the output intent stored in the PDF document itself."
+    },
+    {
+      "cmd": "-pages=",
+      "id": "pages",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Pages",
+      "info": "Use the -pages option to specify a list of selected input pages to process. You can give single page numbers, separated by commas; the first and last page of a range, separated by a hyphen; or some combination of the two."
+    },
+    {
+      "cmd": "-password==",
+      "id": "password",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Password",
+      "info": "Use the -password option to pass the User or Owner password needed to open a password-protected PDF document. The password may be any character string up to 127 characters in length, without spaces."
+    },
+    {
+      "cmd": "-pdfregion=",
+      "id": "pdfregion",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "art", "bleed", "bounding", "crop", "media", "trim"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "PDF Region",
+      "info": "Use the pdfregion option to select a region of the input page or pages in a PDF document to rasterize. Elements not within the indicated area are ignored and do not appear in output."
+    },
+    {
+      "cmd": "-pixelcount=",
+      "id": "pixelcount",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Pixel Count",
+      "info": "Use the -pixelcount option to specify the exact dimensions of your output width and/or height in pixels."
+    },
+    {
+      "cmd": "-profileCMYK=",
+      "id": "profileCMYK",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Profile CMYK",
+      "info": "PDF2IMG offers three command line arguments to select an input color profile, one each for CMYK, RGB, or grayscale. The output color profile is used for rasterizing the PDF document to a bitmap graphics file, or series of graphics files."
+    },
+    {
+      "cmd": "-profileRGB=",
+      "id": "profileRGB",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Profile RGB",
+      "info": "PDF2IMG offers three command line arguments to select an input color profile, one each for CMYK, RGB, or grayscale. The output color profile is used for rasterizing the PDF document to a bitmap graphics file, or series of graphics files."
+    },
+    {
+      "cmd": "-profileGray=",
+      "id": "profileGray",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Profile Gray",
+      "info": "PDF2IMG offers three command line arguments to select an input color profile, one each for CMYK, RGB, or grayscale. The output color profile is used for rasterizing the PDF document to a bitmap graphics file, or series of graphics files."
+    },
+    {
+      "cmd": "-removewhitespace=",
+      "id": "removewhitespace",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Remove White Space",
+      "info": "This command directs PDF2IMG to remove the white space margins around the content on a page in the PDF document."
+    },
+    {
+      "cmd": "-resampler=",
+      "id": "resampler",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "auto", "bicubic", "none"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Resampler",
+      "info": "If images are converted without resampling, it can in some cases cause unwanted artifacts or loss of detail in small-sized or low-resolution output images, such as thumbnails. Automatic resampling was introduced to PDF2IMG to enhance the quality of images when they are converted."
+    },
+    {
+      "cmd": "-resolution=",
+      "id": "resolution",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Resolution",
+      "info": "Use the -resolution option to set the Dots per Inch value for the output file or files, from 12 to 2400. You can enter one or two values. If you only provide one value, it will be applied to both horizontal and vertical, as in 600 x 600. If you provide two values, the first will be applied horizontally and the second will be applied vertically."
+    },
+    {
+      "cmd": "-reverse=",
+      "id": "reverse",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Reverse",
+      "info": "If you are converting to grayscale output files, use the -reverse option to direct PDF2IMG to reverse the grayscale values to produce a \"negative\" image:"
+    },
+    {
+      "cmd": "-smoothing=",
+      "id": "smoothing",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "none", "text", "line", "image", "all"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Smoothing",
+      "info": "User-controlled anti-aliasing, or \"smoothing,\" can be controlled individually for text, line art, images, or any combination as you like."
+    },
+    {
+      "cmd": "fileName",
+      "id": "fileName",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": true,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "File Name",
+      "info": "Enter the file path of the PDF being processed by PDF2IMG"
+    },
+    {
+      "cmd": "outputForm",
+      "id": "outputForm",
+      "critical": true,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "BMP", "EPS", "GIF", "JPG", "PDF", "PNG", "RAW", "TIF"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output Form",
+      "info": "Choose the form of the output file, like JPG, PDF, etc."
+    }
+  ]
+}

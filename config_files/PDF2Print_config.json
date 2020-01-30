@@ -1,0 +1,190 @@
+{
+  "programName": "PDF2PRINT",
+  "description": "PDF2PRINT can be sued to send PDF document to the printer of your choice, either just a single file or multiple files at a time.",
+  "help": "--help",
+  "params": [
+    {
+      "cmd": "--printer=",
+      "id": "printer",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Printer Name",
+      "info": "Enter the printer name or printer path that PDF2Print should use: "
+    },
+    {
+      "cmd": "--copies=",
+      "id": "copies",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Copies",
+      "info": "How many copies should be printed. "
+    },
+    {
+      "cmd": "--collate=",
+      "id": "collate",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "true", "false", "default"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": true,
+      "label": "Collate",
+      "info": "This parameter is only relevant when printing multiple copies, but when true, it'll print in a collate fashion which means that each print component will be placed into a specific sequence: "
+    },
+    {
+      "cmd": "--duplex=",
+      "id": "duplex",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "off", "short", "long", "default"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Duplex",
+      "info": "Prints two-sided, short means to flip on the short edge of the paper while long means flip on the long edge: "
+    },
+    {
+      "cmd": "--orientation=",
+      "id": "orientation",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "landscape", "portrait"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Orientation",
+      "info": "The orientation of the print output; the default is used if this parameter isn't specified: "
+    },
+    {
+      "cmd": "--shrinktofit=",
+      "id": "shrinktofit",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "checkbox",
+      "presetValues": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Shrink to Fit",
+      "info": "When set to true, PDF2Print will adjust the size of the content on a document page to fit the paper in the pager tray; the default is true. "
+    },
+    {
+      "cmd": "--tray=",
+      "id": "tray",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "auto"],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Tray",
+      "info": "This option allows the user to chose which paper tray to use. Use the \"--showtrays\" option to see the ID values of the printer's trays, and use \"--trays=auto\" to tell the print to chose a paper tray based on the size of a page in the print file. "
+    },
+    {
+      "cmd": "--range=",
+      "id": "range",
+      "critical": false,
+      "value": "",
+      "element": "select",
+      "elementType": "NOT_USED",
+      "presetValues": true,
+      "options": ["", "all", "even", "odd", "n-n"],
+      "multiInput": {
+        "accepted": true,
+        "count": 2,
+        "inputTypes": ["number", "string"]
+      },
+      "justParameter": false,
+      "mutExSet": ["fileName"],
+      "repeatable": true,
+      "label": "Range",
+      "info": "Use this option to select a range of pages to print instead of printing the entire document. "
+    },
+    {
+      "cmd": "fileName",
+      "id": "fileName",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": true,
+      "label": "File Name",
+      "info": "Enter the file names or paths of the PDF(s) for PDF2Print: "
+    }
+  ]
+}

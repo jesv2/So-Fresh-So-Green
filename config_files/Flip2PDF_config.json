@@ -1,0 +1,76 @@
+{
+  "programName": "FLIP2PDF",
+  "description": "FLIP2PDF is a simple command line utility that you can use to convert files to PDF documents.<br><br>You can use FLIP2PDf to turn Postscript files, graphic images, and Microsoft Office files into PDF files. The process also supports earlier versions of Microsoft Office as well as the more recent Office Open XML format:<br>\u2022 PostScript and EncapsulatedPostscript<br>\u2022 Word document, doc, docx<br>\u2022 Excel spreadsheets, xls and xlsx<br>\u2022 PowerPOint documents, ppt and pptx<br>\u2022 TIFF,JPG,BMP, and PNG graphic files",
+  "help": "--help",
+  "params": [
+    {
+      "cmd": "--input",
+      "id": "input",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Input file",
+      "info": "Enter the file name or file path of the documents to convert into PDF format"
+    },
+    {
+      "cmd": "--output",
+      "id": "output",
+      "critical": true,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": true,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "Output file/directory",
+      "info": "Select or create the output file; selecting an existing file will overwrite it. If you want to create a new file, go to the directory you want, and type in the name you want to give the file (including the extension)."
+    },
+    {
+      "cmd": "--profile",
+      "id": "profile",
+      "critical": false,
+      "value": "",
+      "element": "input",
+      "elementType": "text",
+      "presetValues": false,
+      "file": true,
+      "directory": false,
+      "createFile": false,
+      "options": [],
+      "multiInput": {
+        "accepted": false,
+        "count": 0,
+        "inputTypes": []
+      },
+      "justParameter": false,
+      "mutExSet": [],
+      "repeatable": false,
+      "label": "File Name",
+      "info": "Enter the file path or file name of the JSON file used for Flip2PDF's settings."
+    }
+  ]
+}

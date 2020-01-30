@@ -1,0 +1,24 @@
+#ignore currently downloaded packages
+/node_modules
+
+#ignore locally created exe files created by electron-packager
+/release-builds
+
+#ignore locally created exe files created by electron-builder
+/dist
+Electron-Blank-1.0.0.tgz
+
+#ignore temp files from testing
+app.js
+app.js.map
+background.js
+background.js.map
+
+#ignore settings file because it is created custom for each computer when sttui runs
+/settings
+
+#ignores files and folders that we use to test the SSTs
+tests/Test_File_Inputs/
+
+#ignores the file that stores our save files
+/save
