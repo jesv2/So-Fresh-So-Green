@@ -1,61 +1,53 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2511
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+#include <wire.h>
 
-\f0\fs24 \cf0 #include <wire.h>\
-\
-\
-float humidity = 0;\
-float tempf = 0;\
-int power = A3;\
-int GND = A2;\
-void setup()\
-\{\
-    Serial.begin(9600);   // open serial \
-\
-    pinMode(power, OUTPUT);\
-    pinMode(GND, OUTPUT);\
-\
-    digitalWrite(power, HIGH);\
-    digitalWrite(GND, LOW);\
-\
-    //Initialize the I2C sensors\
-    sensor.begin();\
-\
-\}\
-//----------------------------------------\
-void loop()\
-\{\
-    //read RH and temp data\
-    getWeather();\
-    printInfo();\
-    delay(1000);\
-\
-\}\
-void getWeather()\
-\{\
-  humidity = sensor.getRH(); // measures RH from SI7021\
-\
-  tempf = sensor.getTempF(); //measure Temp from Si7021\
-\
-  \
-  // measurement with getTemp() instead with readTemp()\
-\}\
-\
-void printInfo() //function prints Temp and RH data out to the default Serial Port\
-\
-\{\
-\
-  Serial.print("Temp:");\
-  Serial.print(tempf);\
-  Serial.print("F, ");\
-\
-  Serial.print("Humidity:");\
-  Serial.print(humidity);\
-  Serial.println("%");\
-\}\
-\
+
+float humidity = 0;
+float tempf = 0;
+int power = A3;
+int GND = A2;
+void setup()
+{
+    Serial.begin(9600);   // open serial 
+
+    pinMode(power, OUTPUT);
+    pinMode(GND, OUTPUT);
+
+    digitalWrite(power, HIGH);
+    digitalWrite(GND, LOW);
+
+    //Initialize the I2C sensors
+    sensor.begin();
+
 }
+//----------------------------------------
+void loop()
+{
+    //read RH and temp data
+    getWeather();
+    printInfo();
+    delay(1000);
+
+}
+void getWeather()
+{
+  humidity = sensor.getRH(); // measures RH from SI7021
+
+  tempf = sensor.getTempF(); //measure Temp from Si7021
+
+  
+  // measurement with getTemp() instead with readTemp()
+}
+
+void printInfo() //function prints Temp and RH data out to the default Serial Port
+
+{
+
+  Serial.print("Temp:");
+  Serial.print(tempf);
+  Serial.print("F, ");
+
+  Serial.print("Humidity:");
+  Serial.print(humidity);
+  Serial.println("%");
+}
+
