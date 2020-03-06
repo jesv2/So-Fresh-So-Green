@@ -6,7 +6,7 @@
       "temperature" : [ "daily", 4 ],
       "humidity" : ["daily", 4]
   },
-  "light" : [ 1, 2, 3, 4, 5 ],
+  "light" : [ 1, 2, 3, 4, 5, 7, 7, 7, 7, 7 ],
   "humidity" : [ 6, 7, 8, 9, 10 ],
   "temperature" : [ 11, 12, 13, 14, 15 ],
   "pH" : [ 16, 17, 18, 19, 20 ]
