@@ -7,6 +7,7 @@ const sensorConfig = require( './sensorConfig.json' );
 const sensorTypes = sensorConfig.sensorType;
 const collectionFrequency = sensorConfig.collectionFrequency;
 const headerName = 'SensorInfo.h';
+const arduinoFileName = 'initialize.ino';
 
 
 let options = { flag : 'a' };
@@ -27,8 +28,18 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
 }
 
 //this loop should write the functions to initialize the arrays that have the pin configuration
+fs.writeFileSync( arduinoFileName, '//These functions will initalize the arrays that contain the pin configuration\n' );
 for ( let i = 0; i < sensorTypeCount; i++ ) {
-
+  fs.writeFileSync( arduinoFileName, 'int* Init' + sensorTypes[i].toUpperCase() + "Config()\n", options );
+  fs.writeFileSync( arduinoFileName, '{\n', options );
+  fs.writeFileSync( arduinoFileName, '  static int configArray[ '+ sensorTypes[i].toUpperCase() + '_SENSOR_COUNT ];\n', options );
+  let pinConfig = sensorConfig[sensorTypes[i]];
+  let size = pinConfig.length;
+  for ( let j = 0; j < size; j++ ) {
+    fs.writeFileSync( arduinoFileName, '  configArray[' + j.toString() + '] = ' + pinConfig[j].toString() + ';\n', options );
+  }
+  //fs.writeFileSync( arduinoFileName, pinConfig[size - 1].toString() + ' ];\n', options );
+  fs.writeFileSync( arduinoFileName, '  return configArray; \n}\n', options );
 }
 
 /*
