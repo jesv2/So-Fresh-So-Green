@@ -12,6 +12,8 @@ const headerName = 'SensorInfo.h';
 
 let options = { flag : 'a' };
 
+//essentially the start of main
+
 fs.writeFileSync( headerName, '#ifndef SENSOR_INFO_HEADER \n' );
 fs.writeFileSync( headerName, '#define SENSOR_INFO_HEADER \n', options);
 const sensorTypeCount = sensorTypes.length;
@@ -42,7 +44,8 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
   //fs.writeFileSync( arduinoFileName, pinConfig[size - 1].toString() + ' ];\n', options );
   fs.writeFileSync( headerName, '  return configArray; \n}\n', options );
 */
-  WriteFunction( headerName, sensorTypes[i], options ); 
+  let pinConfig = sensorConfig[sensorTypes[i]];
+  WriteFunction( headerName, sensorTypes[i].toUpperCase(), options, pinConfig, '' ); 
 }
 
 /*
@@ -53,12 +56,15 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
       The numbers that follow weekly tells us which days of the week data is
       collected on; 0 is Sunday, and 6 is Saturday.
 */
-//this loop should write the functions and macros that contain data collection frequency
+fs.writeFileSync( headerName, '\n\n//Start of the code that provides collection frequency information\n', options );
 for ( let i = 0; i < sensorTypeCount; i++ ) {
-  if ( collectionFreq[sensorTypes[i]][0] === 'daily' ) {
-    
-  } else if ( collectionFreq[sensorTypes[i]][0] === 'weekly' ) {
-    
+  if ( collectionFreq[sensorTypes[i]]['type'] === 'daily' ) {
+    fs.writeFileSync( headerName, '#define IS_' + sensorTypes[i].toUpperCase() + '_DAILY true\n\n', options );
+    fs.writeFileSync( headerName, '#define ' + sensorTypes[i].toUpperCase() + '_DAILY_RATE ' + collectionFreq[sensorTypes[i]]['rate'] + '\n\n', options );
+  } else if ( collectionFreq[sensorTypes[i]]['type'] === 'weekly' ) {
+    let numbers = collectionFreq[sensorTypes[i]]['days']
+    fs.writeFileSync( headerName, '#define IS_' + sensorTypes[i].toUpperCase() + '_DAILY false\n\n', options );
+    WriteFunction( headerName, sensorTypes[i].toUpperCase() , options, numbers, 'Freq' );
   } else { 
     //shouldn't be possible
     throw 'Invalid frequency type';
@@ -67,12 +73,14 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
 
 fs.writeFileSync( headerName, '#endif', options );
 
-function WriteFunction( headerName, functionName, options ) {
-  fs.writeFileSync( headerName, 'int* Init' + functionName.toUpperCase() + "Config()\n", options );
-  fs.writeFileSync( headerName, '{\n', options );
-  fs.writeFileSync( headerName, '  static int configArray[ '+ functionName.toUpperCase() + '_SENSOR_COUNT ];\n', options );
-  let pinConfig = sensorConfig[functionName];
+//end of main
+
+function WriteFunction( headerName, functionName, options, pinConfig, freq ) {
   let size = pinConfig.length;
+  fs.writeFileSync( headerName, 'int* Init' + functionName + freq + "Config()\n", options );
+  fs.writeFileSync( headerName, '{\n', options );
+  fs.writeFileSync( headerName, '  static int configArray[ '+ size + ' ];\n', options );
+  
   for ( let j = 0; j < size; j++ ) {
     fs.writeFileSync( headerName, '  configArray[' + j.toString() + '] = ' + pinConfig[j].toString() + ';\n', options );
   }
