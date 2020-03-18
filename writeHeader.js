@@ -1,11 +1,11 @@
 const fs = require( 'fs' );
 //equivalent to using #include<iostream>
 const sensorConfig = require( './sensorConfig.json' );
-// if we were losing in our own javascript program
+// if we were using our own javascript program
 // const ourJavascriptProgram = require( 'ourProgram.js' );
 
 const sensorTypes = sensorConfig.sensorType;
-const collectionFrequency = sensorConfig.collectionFrequency;
+const collectionFreq = sensorConfig.collectionFrequency;
 const headerName = 'SensorInfo.h';
 //const arduinoFileName = 'initialize.ino';
 
@@ -30,6 +30,7 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
 //this loop should write the functions to initialize the arrays that have the pin configuration
 fs.writeFileSync( headerName, '\n\n//These functions will initalize the arrays that contain the pin configuration\n', options );
 for ( let i = 0; i < sensorTypeCount; i++ ) {
+/*
   fs.writeFileSync( headerName, 'int* Init' + sensorTypes[i].toUpperCase() + "Config()\n", options );
   fs.writeFileSync( headerName, '{\n', options );
   fs.writeFileSync( headerName, '  static int configArray[ '+ sensorTypes[i].toUpperCase() + '_SENSOR_COUNT ];\n', options );
@@ -40,6 +41,8 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
   }
   //fs.writeFileSync( arduinoFileName, pinConfig[size - 1].toString() + ' ];\n', options );
   fs.writeFileSync( headerName, '  return configArray; \n}\n', options );
+*/
+  WriteFunction( headerName, sensorTypes[i], options ); 
 }
 
 /*
@@ -52,7 +55,27 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
 */
 //this loop should write the functions and macros that contain data collection frequency
 for ( let i = 0; i < sensorTypeCount; i++ ) {
-
+  if ( collectionFreq[sensorTypes[i]][0] === 'daily' ) {
+    
+  } else if ( collectionFreq[sensorTypes[i]][0] === 'weekly' ) {
+    
+  } else { 
+    //shouldn't be possible
+    throw 'Invalid frequency type';
+  }
 }
 
 fs.writeFileSync( headerName, '#endif', options );
+
+function WriteFunction( headerName, functionName, options ) {
+  fs.writeFileSync( headerName, 'int* Init' + functionName.toUpperCase() + "Config()\n", options );
+  fs.writeFileSync( headerName, '{\n', options );
+  fs.writeFileSync( headerName, '  static int configArray[ '+ functionName.toUpperCase() + '_SENSOR_COUNT ];\n', options );
+  let pinConfig = sensorConfig[functionName];
+  let size = pinConfig.length;
+  for ( let j = 0; j < size; j++ ) {
+    fs.writeFileSync( headerName, '  configArray[' + j.toString() + '] = ' + pinConfig[j].toString() + ';\n', options );
+  }
+  //fs.writeFileSync( arduinoFileName, pinConfig[size - 1].toString() + ' ];\n', options );
+  fs.writeFileSync( headerName, '  return configArray; \n}\n', options );
+}
