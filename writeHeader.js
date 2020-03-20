@@ -1,4 +1,9 @@
 const fs = require( 'fs' );
+
+
+JsonToHeader(); 
+
+function JsonToHeader() {
 //equivalent to using #include<iostream>
 const sensorConfig = require( './sensorConfig.json' );
 // if we were using our own javascript program
@@ -73,6 +78,7 @@ for ( let i = 0; i < sensorTypeCount; i++ ) {
 
 fs.writeFileSync( headerName, '#endif', options );
 
+}
 //end of main
 
 function WriteFunction( headerName, functionName, options, pinConfig, freq ) {

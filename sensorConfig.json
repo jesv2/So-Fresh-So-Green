@@ -3,7 +3,7 @@
   "collectionFrequency" : {
       "light" : { 
         "type" : "daily",
-        "rate" : 4
+        "rate" : 99
       },
       "pH" : {
         "type" : "weekly",
