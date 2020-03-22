@@ -24,6 +24,14 @@
           <div class="tabs__content" data-tab="1">
             <h2>Configuration</h2>
             <p>Where you can choose the types and number of sensors.</p>
+            <div class="dropzone" id="notUsedPins">
+              <div class="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+              pin1
+              </div>
+            </div>
+            <div class="dropzone" id="TempPins"></div>
+            <div class="dropzone" id="LightPins"></div>
+            <div class="dropzone" id="HumidityPins"></div>
           </div>
           <div class="tabs__content" data-tab="2">
             <h2>Graphs</h2>
