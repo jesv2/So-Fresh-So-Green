@@ -61,9 +61,9 @@ function GetPinSetup() {
   let lightPins = GetPinNums( 'lightPins' );
   let humidityPins = GetPinNums( 'humidityPins' );
 
-  console.log( JSON.parse( JSON.stringify( tempPins ) ) );
-  console.log( JSON.parse( JSON.stringify( lightPins ) ) );
-  console.log( JSON.parse( JSON.stringify( humidityPins ) ) );
+  //console.log( JSON.parse( JSON.stringify( tempPins ) ) );
+  //console.log( JSON.parse( JSON.stringify( lightPins ) ) );
+  //console.log( JSON.parse( JSON.stringify( humidityPins ) ) );
 
   pinConfig['sensorType'] = [];
   insertSensorSetup( tempPins, 'temperature'  );
@@ -131,8 +131,8 @@ function GetPinNums( boxName ) {
   
   let size = pins.length;
   for ( let i = 1; i <= size; i++ ) {
-    console.log('id: ' + pins[i - 1].id);
-    console.log('size:' + size); 
+    //console.log('id: ' + pins[i - 1].id);
+    //console.log('size:' + size); 
     switch ( pins[i - 1].id ) {
       case 'pin1':
         pinMap[ 0 ] = true; 
@@ -169,7 +169,7 @@ function GetPinNums( boxName ) {
     }
   }
 
-  console.log( JSON.parse( JSON.stringify( pinMap ) ) );
+  //console.log( JSON.parse( JSON.stringify( pinMap ) ) );
 
   for ( i = 0; i < PIN_COUNT; i++ ) {
     if ( pinMap[i] === true ) {
