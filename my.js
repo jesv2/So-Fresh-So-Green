@@ -37,6 +37,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/* 
+    Code for submit button of the pin setup window
+    This section of the code just gets the layouts of the pins
+    Getting the data collection frequency from the user will come from another portion of the code
+    I haven't actually gotten the pin layout for the Arduino board so I just made some assumptions,
+    but this layout will most likely need to change as the code matures. 
+
+    I need to work on encapsulating this code
+*/
+
+let pinConfig = {}; //this variable is essentially going to be a global
+
+let pinSetup = document.getElementById( 'pinSetup' );
+pinSetup.addEventListener( 'click', GetPinSetup, false );
+
+function GetPinSetup() {
+
+  pinConfig = {}; 
+  let tempPins = GetPinNums( 'tempPins' );
+  //let notUsedPins = GetPinNums( 'notUsedPins' );
+  let lightPins = GetPinNums( 'lightPins' );
+  let humidityPins = GetPinNums( 'humidityPins' );
+
+  pinConfig['sensorType'] = [];
+  insertSensorSetup( tempPins, 'temperature'  );
+  insertSensorSetup( lightPins, 'light'  );
+  insertSensorSetup( humidityPins, 'humidity'  );
+
+  console.log( JSON.parse( JSON.stringify( pinConfig ) ) ); 
+
+  /*let size = tempPins.length;
+  if ( size != 0 ) {
+    pinConfig['sensorType'].push('temperature');
+    pinConfig['temperature'] = tempPins;    
+  }
+  size = lightPins.length;
+  if ( size != 0 ) {
+    pinConfig['sensorType'].push('light');
+    pinConfig['light'] = lightPins;    
+  } 
+  size = humidityPins.length;
+  if ( size != 0 ) {
+    pinConfig['sensorType'].push('humidity');
+    pinConfig['humidity'] = humidityPins;    
+  } */
+}
+
+function insertSensorSetup( pinNums, sensorType ) {
+  let size = pinNums.length;
+  if ( size != 0 ) {
+    pinConfig['sensorType'].push(sensorType);
+    pinConfig[sensorType] = pinNums;    
+  }
+}
+
 /* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
 const PIN_COUNT = 10;
 const BOX_NAME = 'notUsedPins'; 
