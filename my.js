@@ -25,30 +25,96 @@ function setupTabs () {
 
 document.addEventListener("DOMContentLoaded", () => {
     setupTabs(); 
-
+    MakePinDivs();
     //Displays the first tabs content by default
     document.querySelectorAll(".tabs").forEach(tabsContainer => {
         tabsContainer.querySelector(".tabs__sidebar .tabs__button").click();
     });
+    
+    const iterator = GetPinNums( BOX_NAME ).values();
+    for (const value of iterator) {
+        console.log(value);
+    }
 });
 
 /* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
-const pinCount = 10;
-const boxName = 'notUsedPins'; 
+const PIN_COUNT = 10;
+const BOX_NAME = 'notUsedPins'; 
 
-MakePinDivs();
-
+//called in the DOMContentLoaded event handler
 function MakePinDivs() {
-  let boxForPins = document.getElementById( boxName ); 
-  for( let counter = 2; counter <= pinCount; counter++ ) {
+  let boxForPins = document.getElementById( BOX_NAME ); 
+  for( let counter = 2; counter <= PIN_COUNT; counter++ ) {
     let newDiv = document.createElement('div');
     newDiv.className = 'draggable';
     newDiv.draggable = 'true';
     newDiv.ondragstart = "event.dataTransfer.setData('text/plain',null)";
     newDiv.innerHTML = 'pin' + counter.toString();
+    newDiv.id = 'pin' + counter.toString();
     boxForPins.append( newDiv ); 
   }
-} 
+}
+
+/*
+  This function is meant to access the div correspond to the boxName and see which pins are 
+  being used for each possible setup.
+  Input: boxName, a string that correspond to the id of the element that holds the pin buttons
+  Returns: An array of integers that says which pins are the box
+    - Try to get this ascending order
+*/
+
+function GetPinNums( boxName ) {
+  let pinMap = Array( PIN_COUNT );
+  let pinNums = []; 
+ //const box = document.getElementById( boxName );
+  const pins = document.getElementById( boxName ).children; 
+  
+  let size = pins.length;
+  for ( let i = 1; i <= size; i++ ) {
+    switch ( pins[i - 1].id ) {
+      case ( 'pin1' ):
+        pinMap[i - 1] = true; 
+        break;
+      case ( 'pin2' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin3' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin4' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin5' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin6' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin7' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin8' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin9' ):
+        pinMap[i - 1] = true;
+        break;
+      case ( 'pin10' ):
+        pinMap[i - 1] = true;
+        break;
+      default:
+        console.log('Unexpected value for pin id');
+    }
+  }
+
+  for ( i = 0; i < PIN_COUNT; i++ ) {
+    if ( pinMap[i] === true ) {
+      pinNums.push( i + 1 ); 
+    }
+  }
+
+  return pinNums; 
+}
 
 //Source: https://developer.mozilla.org/en-US/docs/Web/API/Document/dragstart_event
 
