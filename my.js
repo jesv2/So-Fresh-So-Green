@@ -31,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
         tabsContainer.querySelector(".tabs__sidebar .tabs__button").click();
     });
     
-    const iterator = GetPinNums( BOX_NAME ).values();
+    /*const iterator = GetPinNums( BOX_NAME ).values();
     for (const value of iterator) {
         console.log(value);
-    }
+    }*/
+    console.log( JSON.parse( JSON.stringify( GetPinNums( BOX_NAME ) ) ) ); 
 });
 
 /* 
@@ -59,6 +60,10 @@ function GetPinSetup() {
   //let notUsedPins = GetPinNums( 'notUsedPins' );
   let lightPins = GetPinNums( 'lightPins' );
   let humidityPins = GetPinNums( 'humidityPins' );
+
+  console.log( JSON.parse( JSON.stringify( tempPins ) ) );
+  console.log( JSON.parse( JSON.stringify( lightPins ) ) );
+  console.log( JSON.parse( JSON.stringify( humidityPins ) ) );
 
   pinConfig['sensorType'] = [];
   insertSensorSetup( tempPins, 'temperature'  );
@@ -120,47 +125,51 @@ function MakePinDivs() {
 
 function GetPinNums( boxName ) {
   let pinMap = Array( PIN_COUNT );
-  let pinNums = []; 
+  let pinNums = Array(); 
  //const box = document.getElementById( boxName );
   const pins = document.getElementById( boxName ).children; 
   
   let size = pins.length;
   for ( let i = 1; i <= size; i++ ) {
+    console.log('id: ' + pins[i - 1].id);
+    console.log('size:' + size); 
     switch ( pins[i - 1].id ) {
-      case ( 'pin1' ):
-        pinMap[i - 1] = true; 
+      case 'pin1':
+        pinMap[ 0 ] = true; 
         break;
-      case ( 'pin2' ):
-        pinMap[i - 1] = true;
+      case 'pin2':
+        pinMap[ 1 ] = true;
         break;
-      case ( 'pin3' ):
-        pinMap[i - 1] = true;
+      case 'pin3':
+        pinMap[ 2 ] = true;
         break;
-      case ( 'pin4' ):
-        pinMap[i - 1] = true;
+      case 'pin4':
+        pinMap[ 3 ] = true;
         break;
-      case ( 'pin5' ):
-        pinMap[i - 1] = true;
+      case 'pin5':
+        pinMap[ 4 ] = true;
         break;
-      case ( 'pin6' ):
-        pinMap[i - 1] = true;
+      case 'pin6':
+        pinMap[ 5 ] = true;
         break;
-      case ( 'pin7' ):
-        pinMap[i - 1] = true;
+      case 'pin7':
+        pinMap[ 6 ] = true;
         break;
-      case ( 'pin8' ):
-        pinMap[i - 1] = true;
+      case 'pin8':
+        pinMap[ 7 ] = true;
         break;
-      case ( 'pin9' ):
-        pinMap[i - 1] = true;
+      case 'pin9':
+        pinMap[ 8 ] = true;
         break;
-      case ( 'pin10' ):
-        pinMap[i - 1] = true;
+      case 'pin10':
+        pinMap[ 9 ] = true;
         break;
       default:
         console.log('Unexpected value for pin id');
     }
   }
+
+  console.log( JSON.parse( JSON.stringify( pinMap ) ) );
 
   for ( i = 0; i < PIN_COUNT; i++ ) {
     if ( pinMap[i] === true ) {
