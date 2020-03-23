@@ -1,0 +1,25 @@
+{
+  "sensorType" : [ "light", "humidity", "temperature", "pH" ],
+  "collectionFrequency" : {
+      "light" : { 
+        "type" : "daily",
+        "rate" : 99
+      },
+      "pH" : {
+        "type" : "weekly",
+        "days" : [ 2, 4, 6 ]
+      },
+      "temperature" : {
+        "type" : "daily",
+        "rate" : 4 
+      },
+      "humidity" : {
+        "type" : "daily", 
+        "rate" : 4 
+      }
+  },
+  "light" : [ 1, 2, 3, 4, 5, 7, 7, 7, 7, 7 ],
+  "humidity" : [ 6, 7, 8, 9, 10 ],
+  "temperature" : [ 11, 12, 13, 14, 15 ],
+  "pH" : [ 16, 17, 18, 19, 20 ]
+}

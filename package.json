@@ -1,0 +1,15 @@
+{
+  "name": "Fern",
+  "version": "0.0.1",
+  "description": "For Senior Design, UIC ECE 397, spring 2020",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "author": "Based off Github template",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.6"
+  }
+}
