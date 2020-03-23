@@ -19,6 +19,19 @@
 #include "SensorInfo.h"
 
 void setup() {
+// Open serial communications and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.print("Initializing SD card...");
+  if (!SD.begin(pinCS)) {
+    Serial.println("initialization failed!");
+    while (1);
+  }
+  Serial.println("initialization done.");
+
+  bool success = WriteData(testData, testName, n, false);
 }
 
 void loop() {
@@ -50,13 +63,17 @@ void loop() {
 */
 
 void GetDayIntervals( int perDayRate, int offset, int size, bool whatHrs[] ) {
-  int hrsBetween = size / perDayRate;
   if ( ( size % perDayRate ) == 0 ) {
-    
+    int hrsBetween = size / perDayRate;
+    /* Need to make sure that offset is a non-negative number */
+    whatHrs[0] = offset;
+    for ( int i = 0; i < hrsBetween; i++ ) {
+      
+    } 
   } else {
   /*
     There are issues when perDateRate doesn't divide into a whole number
-    so we're just ignoring the issue for now.  
+    so we're just ignoring the issue for now by not doing anything when this happens. 
   */ 
   } 
 }

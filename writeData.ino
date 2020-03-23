@@ -16,7 +16,7 @@ const int n = 10;
 const String testName = "datatest";
 int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-void setup() {
+/* void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -30,7 +30,7 @@ void setup() {
 Serial.println("initialization done.");
 
   bool success = WriteData(testData, testName, n, false); 
-}
+} */
 
 bool WriteData( int inputData[], String fileName, int count, bool newFile ){ //didn't use newFile
   //same stuff inside 
@@ -49,6 +49,8 @@ bool WriteData( int inputData[], String fileName, int count, bool newFile ){ //d
       return false;
       }
 }
-void loop() { //need to include this or else error w/ multiple libraries will occur
+
+
+/*void loop() { //need to include this or else error w/ multiple libraries will occur
   // nothing happens after setup
-}
+} */
