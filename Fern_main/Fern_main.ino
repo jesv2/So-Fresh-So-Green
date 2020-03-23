@@ -77,9 +77,15 @@ void GetDayIntervals( int perDayRate, int offset, int size, bool whatHrs[] ) {
   if ( ( size % perDayRate ) == 0 ) {
     int hrsBetween = size / perDayRate;
     /* Need to make sure that offset is a non-negative number */
-    whatHrs[0] = offset;
-    for ( int i = 0; i < hrsBetween; i++ ) {
-      
+    whatHrs[ offset ] = true;
+    for ( int i = 1; i < perDayRate; i++ ) {
+      int current = ( i * hrsBetween ) + offset; 
+      /* I'm not sure if the commented condition below will actually be an issue given how I'm restricting 
+         myself to nice inputs for now, but there will need to be input sanitation for offset too.  */
+      /*if ( current >= size ) {
+      } else {
+      }*/
+      whatHrs[ current ] = true; 
     } 
   } else {
   /*
