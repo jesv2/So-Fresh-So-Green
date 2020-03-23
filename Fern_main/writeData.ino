@@ -6,15 +6,15 @@
     2. We all the frequency of data collection
  */
 
-#include <SPI.h>
-#include <SD.h>
+//#include <SPI.h>
+//#include <SD.h>
 
-File myFile;
-const int pinCS = 53;
+//File myFile;
+//const int pinCS = 53;
 
-const int n = 10; 
-const String testName = "datatest";
-int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//const int n = 10; 
+//const String testName = "datatest";
+//int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 /* void setup() {
   // Open serial communications and wait for port to open:

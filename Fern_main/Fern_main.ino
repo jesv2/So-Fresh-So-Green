@@ -14,9 +14,20 @@
         the chosen day of the week?)
     3. Fill out the loop and setup function
       - This will consist of using the two modules above and the imported modules. 
+
+  Importing modules seem to be a bit more annoying than I thought it would be in Arduino
 */
 
 #include "SensorInfo.h"
+#include <SPI.h>
+#include <SD.h>
+
+File myFile;
+const int pinCS = 53;
+
+const int n = 10; 
+const String testName = "datatest";
+int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
 void setup() {
 // Open serial communications and wait for port to open:
