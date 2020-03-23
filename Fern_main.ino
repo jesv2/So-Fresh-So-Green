@@ -41,14 +41,17 @@ void loop() {
       and this information can be used to tell us what times of the day we collect data.
   2. int offset
     - This number tells us when to start the first data collection
+  3. int size
+    - The size of the array we're creating which will correspond to the number of hrs a day
+      so pretty much always 24, but maybe we'll change it for some reason!?
   Returns (by reference): an array of booleans, with the index indicating which hour, and the value being
     true means that we do collect data at this time.  
   
 */
 
-void GetDayIntervals( int perDayRate, int offset, bool* whatHrs ) {
-  int hrsBetween = 24 / perDayRate;
-  if ( ( 24 % perDayRate ) == 0 ) {
+void GetDayIntervals( int perDayRate, int offset, int size, bool whatHrs[] ) {
+  int hrsBetween = size / perDayRate;
+  if ( ( size % perDayRate ) == 0 ) {
     
   } else {
   /*
