@@ -25,9 +25,9 @@
 File myFile;
 const int pinCS = 53;
 
-const int n = 10; 
+const int n = LIGHT_SENSOR_COUNT; 
 const String testName = "datatest";
-int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int* testData = InitLIGHTConfig();
 
 void setup() {
 // Open serial communications and wait for port to open:
