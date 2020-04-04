@@ -38,6 +38,24 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log( JSON.parse( JSON.stringify( GetPinNums( BOX_NAME ) ) ) ); 
 });
 
+/* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
+const PIN_COUNT = 10;
+const BOX_NAME = 'notUsedPins'; 
+
+//called in the DOMContentLoaded event handler
+function MakePinDivs() {
+  let boxForPins = document.getElementById( BOX_NAME ); 
+  for( let counter = 2; counter <= PIN_COUNT; counter++ ) {
+    let newDiv = document.createElement('div');
+    newDiv.className = 'draggable';
+    newDiv.draggable = 'true';
+    newDiv.ondragstart = "event.dataTransfer.setData('text/plain',null)";
+    newDiv.innerHTML = 'pin' + counter.toString();
+    newDiv.id = 'pin' + counter.toString();
+    boxForPins.append( newDiv ); 
+  }
+}
+
 /* 
     Code for submit button of the pin setup window
     This section of the code just gets the layouts of the pins
@@ -70,23 +88,8 @@ function GetPinSetup() {
   insertSensorSetup( lightPins, 'light'  );
   insertSensorSetup( humidityPins, 'humidity'  );
 
-  console.log( JSON.parse( JSON.stringify( pinConfig ) ) ); 
+  //console.log( JSON.parse( JSON.stringify( pinConfig ) ) ); 
 
-  /*let size = tempPins.length;
-  if ( size != 0 ) {
-    pinConfig['sensorType'].push('temperature');
-    pinConfig['temperature'] = tempPins;    
-  }
-  size = lightPins.length;
-  if ( size != 0 ) {
-    pinConfig['sensorType'].push('light');
-    pinConfig['light'] = lightPins;    
-  } 
-  size = humidityPins.length;
-  if ( size != 0 ) {
-    pinConfig['sensorType'].push('humidity');
-    pinConfig['humidity'] = humidityPins;    
-  } */
 }
 
 function insertSensorSetup( pinNums, sensorType ) {
@@ -94,24 +97,6 @@ function insertSensorSetup( pinNums, sensorType ) {
   if ( size != 0 ) {
     pinConfig['sensorType'].push(sensorType);
     pinConfig[sensorType] = pinNums;    
-  }
-}
-
-/* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
-const PIN_COUNT = 10;
-const BOX_NAME = 'notUsedPins'; 
-
-//called in the DOMContentLoaded event handler
-function MakePinDivs() {
-  let boxForPins = document.getElementById( BOX_NAME ); 
-  for( let counter = 2; counter <= PIN_COUNT; counter++ ) {
-    let newDiv = document.createElement('div');
-    newDiv.className = 'draggable';
-    newDiv.draggable = 'true';
-    newDiv.ondragstart = "event.dataTransfer.setData('text/plain',null)";
-    newDiv.innerHTML = 'pin' + counter.toString();
-    newDiv.id = 'pin' + counter.toString();
-    boxForPins.append( newDiv ); 
   }
 }
 

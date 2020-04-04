@@ -33,10 +33,22 @@
             <div class="dropzone" id="tempPins"></div>
             <div class="dropzone" id="lightPins"></div>
             <div class="dropzone" id="humidityPins"></div>
+		<!--Make this block contain user inputs on frequency of data collection-->
+            <!-- Radio button source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+                 Make each sensor type's frequency options its own set of radio buttons -->
+            <div>
+              <label for="lightOffset">Enter the starting time for light sensors</label>
+              <input type="text" id="lightOffset" maxlength="2" value="0">
+              <div>
+                <input type="radio" id="lightRate1" name=lightRate value="1" checked>
+                <label for="lightRate1">1</label>
+              </div>
+            </div>
           </div>
           <div class="tabs__content" data-tab="2">
             <h2>Graphs</h2>
             <p>Will display graphs of your choice.</p>
+            
           </div>
           <div class="tabs__content" data-tab="3">
             <h2>Data Analysis</h2>
