@@ -42,9 +42,11 @@ Serial.println("initialization done.");
  *      datapt1 | datapt2 | datapt3 | etc.
  * 
  */
+
 bool WriteData( int inputData[], String fileName, int count, bool newFile ){ //didn't use newFile
-  //same stuff inside 
-    myFile = SD.open( fileName + ".csv", FILE_WRITE); //open csv file to write in
+  //same stuff inside
+   Serial.println("Called WriteData function"); 
+   myFile = SD.open( fileName + ".csv", FILE_WRITE); //open csv file to write in
     if(myFile){                                       //checks to see if opened correctly
       for (int i = 0; i < count; i++ ) {
        myFile.print( String(inputData[i]));           //might end up adding ascii value of comma
@@ -54,6 +56,7 @@ bool WriteData( int inputData[], String fileName, int count, bool newFile ){ //d
       }
       myFile.print('\n');
       myFile.close();
+      Serial.println("Done writing. Closing file");
       return true; 
     }
     else{
