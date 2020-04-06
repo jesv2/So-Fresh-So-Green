@@ -1,4 +1,4 @@
-/*
+`/*
   This file will contain the code that handles the timing of FERN's functionalities.
   It's essentially a schedule manager, but it's also what I consider to be the "main"
   function. It will import modules that are capable of handling interacting with the hardware,
@@ -21,31 +21,64 @@
 #include "SensorInfo.h"
 #include <SPI.h>
 #include <SD.h>
+#include <TimeLib.h>
+#include <TimeAlarms.h>
 
 File myFile;
 const int pinCS = 53;
 
-const int n = LIGHT_SENSOR_COUNT; 
+const int n = LIGHT_SENSOR_COUNT; //10
+const String testName = "TestingLight";
+int* testData = InitLIGHTConfig(); //1 2 3 4 5 7 7 7 7 7
+
+///////////////////////////////////////////
+// Used to test WriteData function
+/*
+const int n = 10; 
 const String testName = "datatest";
-int* testData = InitLIGHTConfig();
+int testData[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+*/
+///////////////////////////////////////
 
 void setup() {
 // Open serial communications and wait for port to open:
   Serial.begin(9600);
+
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
+  
   Serial.print("Initializing SD card...");
   if (!SD.begin(pinCS)) {
     Serial.println("initialization failed!");
     while (1);
   }
   Serial.println("initialization done.");
-
-  bool success = WriteData(testData, testName, n, false);
+  setTime(0,0,0,4,1,20); // set time to Wednesday 0:00:00am (12 am) April 1 2020 //finding interval
+//  bool success = WriteData(testData, testName, n, false);
+  Alarm.alarmRepeat(0,0,3, Sucess);
 }
-
+bool Sucess(){
+  if (WriteData(testData, testName, n, false) == true){
+    return true;
+    }
+  }
+void digitalClockDisplay(){
+  // digital clock display of the time
+  Serial.print(hour());
+  printDigits(minute());
+  printDigits(second());
+  Serial.println(); 
+}
+void printDigits(int digits){
+  Serial.print(":");
+  if(digits < 10)
+    Serial.print('0');
+  Serial.print(digits);
+}
 void loop() {
+  digitalClockDisplay();
+  Alarm.delay(1000); // wait one second between clock display
 }
 
 /*
