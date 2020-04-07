@@ -12,10 +12,14 @@
 
 AlarmId id;
 
+int *intervals; 
+
 void setup() {
   Serial.begin(9600);
   while (!Serial) ; // wait for Arduino Serial Monitor
   setTime(0,0,0,4,1,20); // set time to Wednesday 0:00:00am (12 am) April 1 2020
+  FindIntervals( 0, 0, intervals ); 
+  
   Alarm.alarmRepeat(0,0,3, FindIntervals); // should call FindIntervals function to run once a day at 12:00:03 am
 }
 
@@ -55,6 +59,13 @@ void FindIntervals(int perDayRate, int offset, int whatHrs[]){ //assumed offset 
 void loop() {
   //digitalClockDisplay();
   Alarm.delay(1000); // wait one second between clock display
+  int currHr = hour();
+  int currMin = minute();
+  int currSec = second();
+  /*
+    Go through the interval arrays for each type of sensor to see if there is a match with the current time
+    If there is, then execute WriteData() with the correct parameters passed to it. 
+  */
 }
 /*
 // functions to be called when an alarm triggers:

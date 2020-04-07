@@ -39,14 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
-const PIN_COUNT = 10;
+const PIN_COUNT = 50;
 const BOX_NAME = 'notUsedPins'; 
 
 //called in the DOMContentLoaded event handler
 function MakePinDivs() {
   let boxForPins = document.getElementById( BOX_NAME ); 
   for( let counter = 2; counter <= PIN_COUNT; counter++ ) {
-    let newDiv = document.createElement('div');
+    let newDiv = document.createElement('span'); //I might want to make these spans instead of divs
     newDiv.className = 'draggable';
     newDiv.draggable = 'true';
     newDiv.ondragstart = "event.dataTransfer.setData('text/plain',null)";
@@ -166,6 +166,17 @@ function GetPinNums( boxName ) {
 }
 
 //Source: https://developer.mozilla.org/en-US/docs/Web/API/Document/dragstart_event
+
+/*
+  I need to add in code that will somehow manage line break elements within the dropzone elements.
+  I converted the pin elements into spans so that they wouldn't be block elements, but now 
+  this didn't fully resolve the layout issues I had when I boosted the number of pin elements to 50.
+  The dragzone elements also need an established size, and the pin elements also need an established
+  size. Once these things are determined though, it can be calculated how many pin elements should be
+  on a line within a dragzone element. Now, I just need to write code so that when I drag and drop
+  elements, the event handlers are able to remove or add <br> elements depending on how many pin 
+  elements are within the dropzone element. 
+*/
 
 let dragged;
 
