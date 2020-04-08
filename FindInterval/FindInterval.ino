@@ -12,15 +12,15 @@
 
 AlarmId id;
 
-int *intervals; 
+int tempIntervals[24]; 
 
 void setup() {
   Serial.begin(9600);
   while (!Serial) ; // wait for Arduino Serial Monitor
   setTime(0,0,0,4,1,20); // set time to Wednesday 0:00:00am (12 am) April 1 2020
-  FindIntervals( 0, 0, intervals ); 
+  FindIntervals( TEMPERATURE_DAILY_RATE, 0, tempIntervals ); 
   
-  Alarm.alarmRepeat(0,0,3, FindIntervals); // should call FindIntervals function to run once a day at 12:00:03 am
+  //Alarm.alarmRepeat(0,0,3, FindIntervals); // should call FindIntervals function to run once a day at 12:00:03 am
 }
 
 //Function creates array that designates the interval.
@@ -58,14 +58,24 @@ void FindIntervals(int perDayRate, int offset, int whatHrs[]){ //assumed offset 
   */
 void loop() {
   //digitalClockDisplay();
-  Alarm.delay(1000); // wait one second between clock display
+  //Alarm.delay(1000); // wait one second between clock display
   int currHr = hour();
   int currMin = minute();
   int currSec = second();
+  int* data; 
   /*
     Go through the interval arrays for each type of sensor to see if there is a match with the current time
     If there is, then execute WriteData() with the correct parameters passed to it. 
   */
+  if ( tempIntervals[currHr] ) {
+    if ( currMin == 0 && currSec == 0 ) {
+        //call CollectAllTempSensor( data, TEMPERATURE_SENSOR_COUNT );        
+        WriteData( data, "temperatureData.csv", TEMPERATURE_SENSOR_COUNT, false ); 
+    }
+  }
+  else {
+    //do nothing
+  }
 }
 /*
 // functions to be called when an alarm triggers:
