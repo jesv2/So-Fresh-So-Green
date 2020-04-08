@@ -45,7 +45,7 @@ const BOX_NAME = 'notUsedPins';
 //called in the DOMContentLoaded event handler
 function MakePinDivs() {
   let boxForPins = document.getElementById( BOX_NAME ); 
-  for( let counter = 2; counter <= PIN_COUNT; counter++ ) {
+  for( let counter = 1; counter <= PIN_COUNT; counter++ ) {
     let newDiv = document.createElement('span'); //I might want to make these spans instead of divs
     newDiv.className = 'draggable';
     newDiv.draggable = 'true';

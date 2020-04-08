@@ -25,14 +25,16 @@
             <h2>Configuration</h2>
             <p>Where you can choose the types and number of sensors.</p>
             <button id="pinSetup">Click to submit</button>
-            <div class="dropzone" id="notUsedPins">
-              <div class="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)" id="pin1">
-              pin1
+            <div class="pin_conf">
+              <div class="dropzone" id="notUsedPins">
+                <!--<div class="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)" id="pin1">
+                pin1
+                </div>-->
               </div>
+              <div class="dropzone" id="tempPins"></div>
+              <div class="dropzone" id="lightPins"></div>
+              <div class="dropzone" id="humidityPins"></div>
             </div>
-            <div class="dropzone" id="tempPins"></div>
-            <div class="dropzone" id="lightPins"></div>
-            <div class="dropzone" id="humidityPins"></div>
 		<!--Make this block contain user inputs on frequency of data collection-->
             <!-- Radio button source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
                  Make each sensor type's frequency options its own set of radio buttons -->
