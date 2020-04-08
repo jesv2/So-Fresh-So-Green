@@ -33,7 +33,7 @@ html, body{
     display: grid;
     min-height: 100%;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr;/*was auto*/
     grid-template-areas: 
     "sidebar content";
     grid-gap: 20px;
@@ -66,6 +66,8 @@ html, body{
     background-color: #F0F7D4;
     grid-area: content;
     padding: 40px;
+    width: 1fr;
+    /*min-width: 100%;*/
 }
 .tabs__content {
     display: none;
@@ -78,11 +80,13 @@ html, body{
     grid-template-areas: 
     "pin_conf"
     "freq_conf";*/
+    min-width: 100%;
 }
 
 .pin_conf {
     display: grid;
     min-height: 100%;
+    min-width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: 
@@ -90,10 +94,17 @@ html, body{
     "temp"
     "light"
     "humidity";
+    grid-gap: 20px;
 }
 
 .notUsedPins{
     grid-area: not_used;
+    display: flex;
+    flex-wrap: wrap;
+    /*display: grid;
+    min-height: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
 }
 .tempPins{
     grid-area: temp;
@@ -108,19 +119,22 @@ html, body{
 .draggable {
     width: 100px;
     height: 20px;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;
+    flex-wrap: wrap;*/
     padding: 1px 10px;
     text-align: center;
     background: white;
-    margin: 10px 0px;
+    margin: 5px;
   }
 
 .dropzone {
     /*might use grid here*/
-    width: auto; /*was 200px*/
+    /*width: 1fr; /*was 200px*/
     /*height: 200px;*/
     background: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-around;*/
     /*margin-bottom: 10px;*/
     padding: 15px;
   }
