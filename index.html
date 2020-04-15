@@ -23,15 +23,19 @@
           <div class="tabs__content" data-tab="1">
             <h2>Configuration</h2>
             <p>Where you can choose the types and number of sensors.</p>
-            <button id="pinSetup">Click to submit</button>
+            <button class = "submit" id="pinSetup">Click to submit</button>
             <div class="pin_conf">
+              <h3>Unused Pins</h3>
               <div class="dropzone" id="notUsedPins">
                 <!--<div class="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)" id="pin1">
                 pin1
                 </div>-->
               </div>
+              <h3>Temperature Sensor Pins</h3>
               <div class="dropzone" id="tempPins"></div>
+              <h3>Light Sensor Pins</h3>
               <div class="dropzone" id="lightPins"></div>
+              <h3>Humidty Sensor Pins</h3>
               <div class="dropzone" id="humidityPins"></div>
             </div>
 		<!--Make this block contain user inputs on frequency of data collection-->
