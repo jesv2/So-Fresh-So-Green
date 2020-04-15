@@ -74,13 +74,20 @@ html, body{
 }
 .tabs__content--active{
     display: block;/*was block*/
-    /*min-height: 100%;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-    "pin_conf"
-    "freq_conf";*/
     min-width: 100%;
+}
+
+.submit{
+    display: block;
+    border: none;
+    padding: 5px 20px;
+    background-color: #2E8B57;
+    font-size: 15px;
+    color: #F0F7D4;
+    margin: 15px 0px 0px 0px;
+}
+.submit:hover{
+    background-color: darkgreen;
 }
 
 .pin_conf {
@@ -94,17 +101,12 @@ html, body{
     "temp"
     "light"
     "humidity";
-    grid-gap: 20px;
+    grid-gap: 0px; /*was 20px when dropzones on their own*/
+    margin: 0px 0px 20px 0px;/*was 15px in first and third section*/
 }
 
 .notUsedPins{
     grid-area: not_used;
-    display: flex;
-    flex-wrap: wrap;
-    /*display: grid;
-    min-height: 100%;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
 }
 .tempPins{
     grid-area: temp;
@@ -123,7 +125,7 @@ html, body{
     flex-wrap: wrap;*/
     padding: 1px 10px;
     text-align: center;
-    background: white;
+    background: #BCBCF6;/*white;*/
     margin: 5px;
   }
 
@@ -131,13 +133,57 @@ html, body{
     /*might use grid here*/
     /*width: 1fr; /*was 200px*/
     /*height: 200px;*/
-    background: blueviolet;
+    background: #A1A1F2;/*blueviolet;*/
     display: flex;
     flex-wrap: wrap;
     /*justify-content: space-around;*/
     /*margin-bottom: 10px;*/
     padding: 15px;
   }
+
+  h3{
+      margin-top: 20px;
+      font-weight: normal;
+      font-size: larger;
+  }
+
+  /*Radio button appearance*/
+  /*input{
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+  }
+
+  .checkmark{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background-color: #eee;
+      border-radius: 50%;
+  }
+  input:hover input ~.checkmark{
+    background-color: darkgreen;
+  }
+  .checkmark:after{
+      content: "";
+      position: absolute;
+      display: none;
+  }
+  input:checked ~ .checkmark:after{
+      display: block;
+  }
+  .checkmark:after{
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }*/
 
 /*.grid div:nth-child(even){
     background-color: red;
