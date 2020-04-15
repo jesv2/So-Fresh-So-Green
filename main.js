@@ -7,6 +7,7 @@ const path = require('path')
 let mainWindow
 
 global.sharedObject = { 
+  someProperty : 'default', 
   dataArray : []
 }
 

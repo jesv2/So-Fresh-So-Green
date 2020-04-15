@@ -186,7 +186,9 @@ function GetNewWindow( newWindow, fileName ) {
   if ( newWindow === null ) {
     newWindow = new BrowserWindow( {
       width: 800,
-      height: 600 } );
+      height: 600,
+      webPreferences: { nodeIntegration: true } 
+    } );
 
     newWindow.loadFile( fileName );
     newWindow.on('closed', function () {
