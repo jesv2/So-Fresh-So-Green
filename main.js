@@ -6,6 +6,10 @@ const path = require('path')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+global.sharedObject = { 
+  dataArray : []
+}
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({

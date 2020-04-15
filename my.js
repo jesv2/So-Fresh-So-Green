@@ -180,31 +180,38 @@ function GetPinNums( boxName ) {
 
 const { remote } = require( 'electron' );
 const { BrowserWindow } = remote;  
-let newWindow = null; 
+let dataWindow = null; 
 
-function GetDataWindow() {
+function GetNewWindow( newWindow, fileName ) {
   if ( newWindow === null ) {
     newWindow = new BrowserWindow( {
       width: 800,
-      height: 800 } );
+      height: 600 } );
 
-    newWindow.loadFile('DataSelection.html');
+    newWindow.loadFile( fileName );
     newWindow.on('closed', function () {
       newWindow = null
     });
 
-  }
+  } 
   else {
     newWindow.show(); 
   }
 }
 
-//Registering the above functions
+//Registering the above function
 let DataSelButton = document.getElementById( 'DataSel1' );
-DataSelButton.addEventListener( 'click', GetDataWindow, false );
+DataSelButton.addEventListener( 'click', () => { GetNewWindow( dataWindow, 'DataSelection.html' ); }, false );
 
 DataSelButton = document.getElementById( 'DataSel2' );
-DataSelButton.addEventListener( 'click', GetDataWindow, false );
+DataSelButton.addEventListener( 'click', () => { GetNewWindow( dataWindow, 'DataSelection.html' ); }, false );
+
+DataSelButton = null; 
+
+/* Using the above code to make a button to make the graphing windows */
+let pieChartWindow = null;
+let getGraphButton = document.getElementById( 'getPieChart' );
+getGraphButton.addEventListener( 'click', () => { GetNewWindow( pieChartWindow, 'PieChart.html' ); }, false );
 
 /*
   I need to add in code that will somehow manage line break elements within the dropzone elements.
