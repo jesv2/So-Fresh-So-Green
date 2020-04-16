@@ -3,6 +3,22 @@
     padding: 0;
 }
 
+/*image*/
+.leaf1{
+    height: 30px;
+    width: 40px;
+    float: left;
+}
+.leaf2{
+    height: 30px;
+    width: 40px;
+    float: left;
+}
+
+h1{
+    float: left;
+}
+
 html, body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #2E8B57;
@@ -23,9 +39,11 @@ html, body{
 }
 
 .header{
+    display: flex;
+    justify-content: center;
     background-color: #B2D732;
     grid-area: header;
-    text-align: center;
+    /*text-align: center;*/
     padding: 20px;
 }
 
@@ -56,7 +74,7 @@ html, body{
     color:#ffffff;
     
 }
-.tabs__button:hover{background-color: #797299;}
+.tabs__button:hover{background-color: #7c7b80;}/*#797299*/
 /*.tabs__button:focus{background-color: #00530e;}/*#ec9a00;*/
 .tabs__button:not(:last-of-type) {
     border-bottom: 1px solid #ffffff;
@@ -87,7 +105,7 @@ html, body{
     margin: 15px 0px 0px 0px;
 }
 .submit:hover{
-    background-color: darkgreen;
+    background-color: rgb(25, 75, 46);
 }
 
 .pin_conf {
@@ -125,7 +143,7 @@ html, body{
     flex-wrap: wrap;*/
     padding: 1px 10px;
     text-align: center;
-    background: #BCBCF6;/*white;*/
+    background: #BCBCF6;/*white;#BCBCF6*/
     margin: 5px;
 }
 
@@ -133,7 +151,7 @@ html, body{
     /*might use grid here*/
     /*width: 1fr; /*was 200px*/
     /*height: 200px;*/
-    background: #A1A1F2;/*blueviolet;*/
+    background: #A1A1F2;/*blueviolet;#A1A1F2*/
     display: flex;
     flex-wrap: wrap;
     /*justify-content: space-around;*/
@@ -151,6 +169,27 @@ button:focus{
     outline:none;
 }
 
+/*Other buttons*/
+.DataSel{
+    display: block;
+    border: none;
+    padding: 5px 20px;
+    background-color: #361d9b;
+    font-size: 15px;
+    color: #F0F7D4;
+    margin: 15px 0px 0px 0px;
+}
+.DataSel:hover{background-color: #180d44;}
+.getPie{
+    display: block;
+    border: none;
+    padding: 5px 20px;
+    background-color: #d13525;
+    font-size: 15px;
+    color: #F0F7D4;
+    margin: 15px 0px 0px 0px;
+}
+.getPie:hover{background-color: #681b13;}
   /*Radio button appearance*/
   /*input{
       position: absolute;
