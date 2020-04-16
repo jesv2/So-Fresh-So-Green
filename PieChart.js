@@ -48,7 +48,7 @@ function pieChart(diameter, data) {
 
 const numbers = [30, 10, 25, 35, 70, 48, 75, 67];
 
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+console.log(require('electron').remote.getGlobal('sharedObject').dataArray);
 
 function setup() {
   createCanvas(720, 400);
