@@ -13,6 +13,7 @@
     "electron": "^5.0.6"
   },
   "dependencies": {
+    "csv-reader": "^1.0.6",
     "jstat": "^1.9.2"
   }
 }

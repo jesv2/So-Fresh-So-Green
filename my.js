@@ -165,7 +165,55 @@ function GetPinNums( boxName ) {
   return pinNums; 
 }
 
-//Source: https://developer.mozilla.org/en-US/docs/Web/API/Document/dragstart_event
+/***********************   Launch Data Selection Window    ************************/
+
+/* This next block of code is meant to be the click event handler for a button that will
+   appear in the graph and data analysis window. This button should launch a new window
+   that has the interface for the user to select which data they want to be processed. 
+
+   The new window should first have a button that opens up a file explorer to allow the user to 
+   chose a csv file. The csv file will then determine the size of a grid to be print in the
+   window. This grid should allow the user to select which data entries of the file are 
+   meant to be sent to the data analysis or graphing modules.  */
+
+/* Exposing Electron's API through remote? */
+
+const { remote } = require( 'electron' );
+const { BrowserWindow } = remote;  
+let dataWindow = null; 
+
+function GetNewWindow( newWindow, fileName ) {
+  if ( newWindow === null ) {
+    newWindow = new BrowserWindow( {
+      width: 800,
+      height: 600,
+      webPreferences: { nodeIntegration: true } 
+    } );
+
+    newWindow.loadFile( fileName );
+    newWindow.on('closed', function () {
+      newWindow = null
+    });
+
+  } 
+  else {
+    newWindow.show(); 
+  }
+}
+
+//Registering the above function
+let DataSelButton = document.getElementById( 'DataSel1' );
+DataSelButton.addEventListener( 'click', () => { GetNewWindow( dataWindow, 'DataSelection.html' ); }, false );
+
+DataSelButton = document.getElementById( 'DataSel2' );
+DataSelButton.addEventListener( 'click', () => { GetNewWindow( dataWindow, 'DataSelection.html' ); }, false );
+
+DataSelButton = null; 
+
+/* Using the above code to make a button to make the graphing windows */
+let pieChartWindow = null;
+let getGraphButton = document.getElementById( 'getPieChart' );
+getGraphButton.addEventListener( 'click', () => { GetNewWindow( pieChartWindow, 'PieChart.html' ); }, false );
 
 /*
   I need to add in code that will somehow manage line break elements within the dropzone elements.
@@ -176,8 +224,12 @@ function GetPinNums( boxName ) {
   on a line within a dragzone element. Now, I just need to write code so that when I drag and drop
   elements, the event handlers are able to remove or add <br> elements depending on how many pin 
   elements are within the dropzone element. 
+
+
+  Jessica managed to this in css
 */
 
+//Source: https://developer.mozilla.org/en-US/docs/Web/API/Document/dragstart_event
 let dragged;
 
   /* events fired on the draggable target */
