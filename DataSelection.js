@@ -2,6 +2,14 @@
 const shared = require('electron').remote.getGlobal('sharedObject');
 //shared.dataArray = null; 
 
+
+/* Variable definitions/declaration for the p5 module */
+const BOX_WIDTH = 10, BOX_LENGTH = 10; //it's a square for now 
+let xStart = 25, yStart = 25;
+let xDiff = 0, yDiff = 0; 
+let rowCount, columnCount;
+let row
+
 /* Code for the button to open the file explorer */
 const { dialog } = require('electron').remote; 
 const Fs = require( 'fs' ); 
@@ -29,21 +37,53 @@ fileExplorer.addEventListener( 'click', () => {
       .pipe(new CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
       .on('data', function (row) {
         console.log('A row arrived: ', row);
-        csvArray.push( row ); 
+        csvArray.push( row );
       })
       .on('end', function (data) {
         console.log('No more rows!');
+        rowCount = csvArray.length;
+        columnCount = csvArray[0].length; 
       } );
   } //end of the if statement...hopefully 
 }, false );
 
 /* The p5 code */
+
 function setup() {
   createCanvas(800, 600);
-  noStroke();
-  noLoop(); // Run once and stop
+  //noStroke();
+  //noLoop(); // Run once and stop
 }
 
 function draw() {
   background(100);
+  rect(xStart, yStart, xDiff, yDiff ); //The drag box's rect function
+  
+  // For drawing the data grid
+  for ( let row = 0; row < rowCount; row++ ) {
+    for( let col = 0; col < columnCount; col++ ) {
+    }
+  }
 }
+
+function mousePressed() {
+  xDiff = 0; 
+  yDiff = 0; 
+  xStart = mouseX;
+  yStart = mouseY;
+  return false; //prevent default  
+}
+
+function mouseDragged() {
+  xDiff = mouseX - xStart; 
+  yDiff = mouseY - yStart;
+  // prevent default
+  return false;
+}
+
+/*function mouseReleased() {
+  xDiff = mouseX - xStart; 
+  yDiff = mouseY - yStart; 
+  // prevent default
+  return false;
+}*/
