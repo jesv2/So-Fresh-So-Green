@@ -41,8 +41,7 @@ fileExplorer.addEventListener( 'click', () => {
 let xStart = 25, yStart = 25;
 let xDiff = 0, yDiff = 0; 
 let rowCount = csvArray.length; 
-//let columnCount = csvArray[0].length; //this line of code can throw errors if the user cancels  
-//let start = false; 
+let columnCount; 
 
 function setup() {
   createCanvas(800, 600);
@@ -64,13 +63,8 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-  //if ( start == false ) {
-    //start = true;
-  
-  //} else {
-    xDiff = mouseX - xStart; 
-    yDiff = mouseY - yStart; 
-  //}
+  xDiff = mouseX - xStart; 
+  yDiff = mouseY - yStart;
   // prevent default
   return false;
 }
