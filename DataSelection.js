@@ -38,12 +38,46 @@ fileExplorer.addEventListener( 'click', () => {
 }, false );
 
 /* The p5 code */
+let xStart = 25, yStart = 25;
+let xDiff = 0, yDiff = 0; 
+let rowCount = csvArray.length; 
+//let columnCount = csvArray[0].length; //this line of code can throw errors if the user cancels  
+//let start = false; 
+
 function setup() {
   createCanvas(800, 600);
-  noStroke();
-  noLoop(); // Run once and stop
+  //noStroke();
+  //noLoop(); // Run once and stop
 }
 
 function draw() {
   background(100);
+  rect(xStart, yStart, xDiff, yDiff );
 }
+
+function mousePressed() {
+  xDiff = 0; 
+  yDiff = 0; 
+  xStart = mouseX;
+  yStart = mouseY;
+  return false; //prevent default  
+}
+
+function mouseDragged() {
+  //if ( start == false ) {
+    //start = true;
+  
+  //} else {
+    xDiff = mouseX - xStart; 
+    yDiff = mouseY - yStart; 
+  //}
+  // prevent default
+  return false;
+}
+
+/*function mouseReleased() {
+  xDiff = mouseX - xStart; 
+  yDiff = mouseY - yStart; 
+  // prevent default
+  return false;
+}*/
