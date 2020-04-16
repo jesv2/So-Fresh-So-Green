@@ -1,14 +1,19 @@
-/* Code on using Electron to communicate between windows */
+/* 
+  Code on using Electron to communicate between windows 
+  Reference: https://www.electronjs.org/docs/faq#how-to-share-data-between-web-pages 
+*/
 const shared = require('electron').remote.getGlobal('sharedObject');
 //shared.dataArray = null; 
 
 
 /* Variable definitions/declaration for the p5 module */
-const BOX_WIDTH = 10, BOX_LENGTH = 10; //it's a square for now 
+const BOX_WIDTH = 40, BOX_LENGTH = 40; //it's a square for now 
+const X_OFFSET = 10, Y_OFFSET = 20; 
+
 let xStart = 25, yStart = 25;
 let xDiff = 0, yDiff = 0; 
-let rowCount, columnCount;
-let row
+let rowCount = 0, columnCount = 0;
+let boxIndices = []; //each entry is a Point structure, has xPos and yPos. 
 
 /* Code for the button to open the file explorer */
 const { dialog } = require('electron').remote; 
@@ -42,7 +47,16 @@ fileExplorer.addEventListener( 'click', () => {
       .on('end', function (data) {
         console.log('No more rows!');
         rowCount = csvArray.length;
-        columnCount = csvArray[0].length; 
+        columnCount = csvArray[0].length;
+        // getting the box indices
+        for ( let row = 0; row < rowCount; row++ ) {
+          let rowEntry = [];
+          for( let col = 0; col < columnCount; col++ ) {
+            let point = { xPos : BOX_WIDTH + ( col * BOX_WIDTH ), yPos : BOX_LENGTH + ( row * BOX_LENGTH )  };
+            rowEntry.push( point ); 
+          }
+          boxIndices.push( rowEntry ); 
+        } 
       } );
   } //end of the if statement...hopefully 
 }, false );
@@ -62,6 +76,8 @@ function draw() {
   // For drawing the data grid
   for ( let row = 0; row < rowCount; row++ ) {
     for( let col = 0; col < columnCount; col++ ) {
+      rect( boxIndices[row][col].xPos, boxIndices[row][col].yPos, BOX_WIDTH, BOX_LENGTH );
+      text( csvArray[row][col], boxIndices[row][col].xPos + X_OFFSET, boxIndices[row][col].yPos + Y_OFFSET ); 
     }
   }
 }
