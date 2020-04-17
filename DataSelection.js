@@ -7,8 +7,9 @@ const shared = require('electron').remote.getGlobal('sharedObject');
 
 
 /* Variable definitions/declaration for the p5 module */
-const BOX_WIDTH = 40, BOX_LENGTH = 40; //it's a square for now 
-const X_OFFSET = 10, Y_OFFSET = 20; 
+const BOX_WIDTH = 80, BOX_LENGTH = 80; //it's a square for now 
+const X_OFFSET = 10, Y_OFFSET = 20;
+const BIG_TEXT_SIZE = 18, SMALL_TEXT_SIZE = 12;  
 
 let xStart = 25, yStart = 25;
 let xDiff = 0, yDiff = 0; 
@@ -52,7 +53,7 @@ fileExplorer.addEventListener( 'click', () => {
         for ( let row = 0; row < rowCount; row++ ) {
           let rowEntry = [];
           for( let col = 0; col < columnCount; col++ ) {
-            let point = { xPos : BOX_WIDTH + ( col * BOX_WIDTH ), yPos : BOX_LENGTH + ( row * BOX_LENGTH )  };
+            let point = { xPos : X_OFFSET + ( col * BOX_WIDTH ), yPos : X_OFFSET + ( row * BOX_LENGTH )  }; //just using X_OFFSET for y because it's 10
             rowEntry.push( point ); 
           }
           boxIndices.push( rowEntry ); 
@@ -64,7 +65,7 @@ fileExplorer.addEventListener( 'click', () => {
 /* The p5 code */
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(900, 900);
   //noStroke();
   //noLoop(); // Run once and stop
 }
@@ -77,7 +78,10 @@ function draw() {
   for ( let row = 0; row < rowCount; row++ ) {
     for( let col = 0; col < columnCount; col++ ) {
       rect( boxIndices[row][col].xPos, boxIndices[row][col].yPos, BOX_WIDTH, BOX_LENGTH );
-      text( csvArray[row][col], boxIndices[row][col].xPos + X_OFFSET, boxIndices[row][col].yPos + Y_OFFSET ); 
+      if ( row != 0 && col != 0 ) {
+        textSize( BIG_TEXT_SIZE ); 
+      } else { textSize( SMALL_TEXT_SIZE ); }
+      text( csvArray[row][col], boxIndices[row][col].xPos + X_OFFSET, boxIndices[row][col].yPos + Y_OFFSET );
     }
   }
   push(); 

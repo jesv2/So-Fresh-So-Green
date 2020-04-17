@@ -185,8 +185,8 @@ let dataWindow = null;
 function GetNewWindow( newWindow, fileName ) {
   if ( newWindow === null ) {
     newWindow = new BrowserWindow( {
-      width: 900,
-      height: 900,
+      width: 1000,
+      height: 1000,
       webPreferences: { nodeIntegration: true } 
     } );
 
