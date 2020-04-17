@@ -3,8 +3,7 @@
   Reference: https://www.electronjs.org/docs/faq#how-to-share-data-between-web-pages 
 */
 const shared = require('electron').remote.getGlobal('sharedObject');
-//shared.dataArray = null; 
-
+//shared.dataArray = null;  
 
 /* Variable definitions/declaration for the p5 module */
 const BOX_WIDTH = 80, BOX_LENGTH = 80; //it's a square for now 
@@ -56,7 +55,8 @@ fileExplorer.addEventListener( 'click', () => {
             let point = { xPos : X_OFFSET + ( col * BOX_WIDTH ), yPos : X_OFFSET + ( row * BOX_LENGTH )  }; //just using X_OFFSET for y because it's 10
             rowEntry.push( point ); 
           }
-          boxIndices.push( rowEntry ); 
+          boxIndices.push( rowEntry );
+          shared.dataArray = csvArray;  
         } 
       } );
   } //end of the if statement...hopefully 
