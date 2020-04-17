@@ -1,4 +1,12 @@
 
+/* Importing the jStat library: https://jstat.github.io/all.html#jStat */
+const { jStat } = require( 'jstat' ); 
+/* 
+  Code on using Electron to communicate between windows 
+  Reference: https://www.electronjs.org/docs/faq#how-to-share-data-between-web-pages 
+*/
+const shared = require('electron').remote.getGlobal('sharedObject');
+
 function setupTabs () {
     document.querySelectorAll(".tabs__button").forEach(button => {
         button.addEventListener("click", () => {
@@ -37,6 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }*/
     console.log( JSON.parse( JSON.stringify( GetPinNums( BOX_NAME ) ) ) ); 
 });
+
+/* Adding event handlers for the stat analysis buttons */
+let jStatResult = null; //this is a global 
+
+let resultDisplay = document.getElementById( 'displayResults' );
+let calcAverage = document.getElementById( 'calcAverage' );
+calcAverage.addEventListener( "click", () => { 
+  let getRow = shared.dataArray[4];
+  getRow.splice( 0, 1 );
+  jStatResult = jStat.mean( getRow ); 
+  console.log( jStatResult );
+  console.log( getRow );
+  resultDisplay.innerHTML = jStatResult; 
+}, false );
+ 
 
 /* This block is code is for making the divs that we can drag around to indicate what the state of each pin is */
 const PIN_COUNT = 50;
@@ -185,8 +208,8 @@ let dataWindow = null;
 function GetNewWindow( newWindow, fileName ) {
   if ( newWindow === null ) {
     newWindow = new BrowserWindow( {
-      width: 800,
-      height: 700,
+      width: 1000,
+      height: 1000,
       webPreferences: { nodeIntegration: true } 
     } );
 
