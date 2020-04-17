@@ -71,7 +71,7 @@ function setup() {
 
 function draw() {
   background(100);
-  rect(xStart, yStart, xDiff, yDiff ); //The drag box's rect function
+  
   
   // For drawing the data grid
   for ( let row = 0; row < rowCount; row++ ) {
@@ -80,6 +80,11 @@ function draw() {
       text( csvArray[row][col], boxIndices[row][col].xPos + X_OFFSET, boxIndices[row][col].yPos + Y_OFFSET ); 
     }
   }
+  push(); 
+  let c = color( 200, 100 ); 
+  fill( c );
+  rect(xStart, yStart, xDiff, yDiff ); //The drag box's rect function
+  pop(); 
 }
 
 function mousePressed() {
