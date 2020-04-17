@@ -4,7 +4,22 @@
   "description": "For Senior Design, UIC ECE 397, spring 2020",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "builder-win": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
+    "make-installer": "npm run postinstall && npm run builder-win"
+  },
+  "build": {
+    "appId": "N/A",
+    "productName": "Fern",
+    "artifactName": "setup_${productName}_Win64_${version}.${ext}",
+    "extraResources" : [
+      "./sampledata.csv"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "leaf-icon.ico"
+    }
   },
   "repository": "",
   "author": "Based off Github template",
@@ -14,6 +29,7 @@
   },
   "dependencies": {
     "csv-reader": "^1.0.6",
-    "jstat": "^1.9.2"
+    "jstat": "^1.9.2",
+    "electron-builder": "^21.2.0"
   }
 }
