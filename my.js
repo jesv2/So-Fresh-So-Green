@@ -238,11 +238,6 @@ let pieChartWindow = null;
 let getGraphButton = document.getElementById( 'getPieChart' );
 getGraphButton.addEventListener( 'click', () => { GetNewWindow( pieChartWindow, 'PieChart.html' ); }, false );
 
-/*For Bar Graph, same as above*/
-let barGraphWindow = null;
-let getGraph2Button = document.getElementById( 'getBarGraph' );
-getGraph2Button.addEventListener( 'click', () => { GetNewWindow( barGraphWindow, 'BarGraph.html' ); }, false );
-
 /*
   I need to add in code that will somehow manage line break elements within the dropzone elements.
   I converted the pin elements into spans so that they wouldn't be block elements, but now 
