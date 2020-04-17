@@ -190,6 +190,17 @@ button:focus{
     margin: 15px 0px 0px 0px;
 }
 .getPie:hover{background-color: #681b13;}
+
+.dataAnalysis{
+    display: block;
+    border: none;
+    padding: 5px 20px;
+    background-color: #d38032;
+    font-size: 15px;
+    color: #F0F7D4;
+    margin: 15px 0px 15px 0px;
+}
+.dataAnalysis:hover{background-color: #66401c;}
   /*Radio button appearance*/
   /*input{
       position: absolute;
